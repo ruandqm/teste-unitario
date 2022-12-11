@@ -1,6 +1,6 @@
 //parte 1
 
-function combustivelPorKm(metros, tipoCombustivel) {
+exports.combustivelPorKm = function (metros, tipoCombustivel) {
     if (Number.isInteger(metros) && metros >= 0) {
         let rendimento
         let litros
@@ -18,7 +18,7 @@ function combustivelPorKm(metros, tipoCombustivel) {
         try {
             calcularRendimento()
             litros = metros / rendimento
-            return (litros.toFixed(2))
+            return (parseFloat(litros.toFixed(2)))
         }
         catch (err) {
             console.error('Erro: ', err)
@@ -32,8 +32,7 @@ function combustivelPorKm(metros, tipoCombustivel) {
 
 //parte 2
 
-function numParadas(adultosCriancas, tempo) {
-
+exports.numParadas = function (adultosCriancas, tempo) {
     function validar() {
         for (let i = 0; i < adultosCriancas.length; i++) {
             if (adultosCriancas[i] != 'adulto' && adultosCriancas[i] != 'crianca') {
@@ -70,7 +69,7 @@ function numParadas(adultosCriancas, tempo) {
         if (criancas > adultos) {
             paradas = Math.trunc((tempo * 60) / 40)
         }
-        console.log(paradas)
+        return (paradas)
     }
     catch (err) {
         console.error('Erro: ', err)
@@ -80,7 +79,7 @@ function numParadas(adultosCriancas, tempo) {
 
 //parte 3
 
-function refeicoes(paradas, passageiros) {
+exports.refeicoes = function (paradas, passageiros) {
     let adultos = 0
     let criancas = 0
     let completas = 0
@@ -116,15 +115,15 @@ function refeicoes(paradas, passageiros) {
 
     //calcular gasto total
     let gastoTotal = gastoAdultos + gastoCriancas
-    console.log('R$ ' + gastoTotal)
+    return (gastoTotal)
 }
 
 //chamadas 
 
-combustivelPorKm(20000, 'etanol')
+/*combustivelPorKm(20000, 'etanol')
 numParadas(["adulto", "crianca", "crianca"], 4.0)
 refeicoes(4, ["adulto", "crianca", "crianca"])
 
 module.exports = { combustivelPorKm }
 module.exports = { numParadas }
-module.exports = { refeicoes }
+module.exports = { refeicoes }*/
